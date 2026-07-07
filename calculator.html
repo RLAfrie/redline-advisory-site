@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Affordability Calculator — Redline Advisory</title>
+<meta name="description" content="Free sports car affordability calculator built on all-in ownership cost: payment, insurance, fuel, and maintenance — not just the loan.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="nav-sticky"><div class="wrap">
+  <nav class="nav">
+    <a class="nav-logo" href="index.html" aria-label="Redline Advisory home">
+      <svg width="44" height="44" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path d="M6.6 23.3 A18 18 0 0 1 37.8 16.4" stroke="#141414" stroke-width="3" stroke-linecap="round"/>
+        <path d="M37.8 16.4 A18 18 0 0 1 41.4 23.3" stroke="#C0392B" stroke-width="3" stroke-linecap="round"/>
+        <line x1="24" y1="28" x2="37.6" y2="21.7" stroke="#C0392B" stroke-width="2.6" stroke-linecap="round"/>
+        <circle cx="24" cy="28" r="2.6" fill="#141414"/>
+      </svg>
+      <span class="nav-wordmark">Redline Advisory</span>
+    </a>
+    <ul class="nav-links">
+      <li class="hide-m"><a class="active" href="calculator.html">Calculator</a></li>
+      <li class="hide-m"><a href="guides.html">Guides</a></li>
+      <li class="hide-m"><a href="about.html">About</a></li>
+      <li><a class="nav-cta" href="advisory.html">ADVISORY</a></li>
+    </ul>
+  </nav>
+</div></header>
+
+<main>
+  <section class="hero wrap" style="padding-bottom: clamp(30px, 5vw, 60px);">
+    <span class="eyebrow">Free Tool</span>
+    <h1>What can you actually afford?</h1>
+    <p class="lede">Most calculators stop at the loan payment. This one is built on all-in monthly cost &mdash; payment, insurance, fuel, and maintenance &mdash; against your real take-home pay. Three honest answers, not one flattering one.</p>
+  </section>
+
+  <div class="wrap"><hr class="redline-rule rule-anim"></div>
+
+  <section class="section wrap">
+    <div class="calc-grid">
+
+      <div class="calc-form">
+        <span class="eyebrow">Your inputs</span>
+        <label for="takehome">Monthly take-home pay ($)</label>
+        <input type="number" id="takehome" inputmode="numeric" placeholder="6500" min="0">
+
+        <label for="down">Down payment ($)</label>
+        <input type="number" id="down" inputmode="numeric" placeholder="10000" min="0">
+
+        <label for="credit">Credit profile</label>
+        <select id="credit">
+          <option value="excellent">Excellent (740+)</option>
+          <option value="good" selected>Good (670&ndash;739)</option>
+          <option value="fair">Fair (580&ndash;669)</option>
+        </select>
+
+        <label for="term">Loan term</label>
+        <select id="term">
+          <option value="48">48 months</option>
+          <option value="60" selected>60 months</option>
+          <option value="72">72 months</option>
+        </select>
+
+        <label for="age">Car age</label>
+        <select id="age">
+          <option value="new" selected>0&ndash;5 years</option>
+          <option value="mid">6&ndash;12 years</option>
+          <option value="old">12+ years</option>
+        </select>
+
+        <button class="btn btn-solid" id="calc-btn" type="button">Calculate my range</button>
+        <p class="calc-note">Educational estimates only &mdash; not financial, lending, or insurance advice. See the methodology below.</p>
+      </div>
+
+      <div id="results" aria-live="polite">
+        <span class="eyebrow">Your range</span>
+
+        <div class="tier t1">
+          <div class="tier-text">
+            <span class="tier-label">Comfortable &mdash; 15% of take-home</span>
+            <p class="tier-price" id="p1">&mdash;</p>
+            <p class="tier-sub" id="s1">All-in monthly cost stays easy to carry. Room left for everything else you're building.</p>
+          </div>
+          <svg class="tier-gauge" viewBox="0 0 128 78" aria-hidden="true">
+            <path d="M12 66 A52 52 0 0 1 100.8 29.2" stroke="#141414" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <path d="M100.8 29.2 A52 52 0 0 1 116 66" stroke="#C0392B" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <line class="needle" id="n1" x1="64" y1="66" x2="64" y2="22" stroke="#C0392B" stroke-width="3.5" stroke-linecap="round" style="transform: rotate(-90deg);"/>
+            <circle cx="64" cy="66" r="4" fill="#141414"/>
+          </svg>
+        </div>
+
+        <div class="tier t2">
+          <div class="tier-text">
+            <span class="tier-label">Stretch &mdash; 20% of take-home</span>
+            <p class="tier-price" id="p2">&mdash;</p>
+            <p class="tier-sub" id="s2">Noticeable, sustainable if your income is stable. The honest middle for most enthusiasts.</p>
+          </div>
+          <svg class="tier-gauge" viewBox="0 0 128 78" aria-hidden="true">
+            <path d="M12 66 A52 52 0 0 1 100.8 29.2" stroke="#141414" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <path d="M100.8 29.2 A52 52 0 0 1 116 66" stroke="#C0392B" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <line class="needle" id="n2" x1="64" y1="66" x2="64" y2="22" stroke="#C0392B" stroke-width="3.5" stroke-linecap="round" style="transform: rotate(-90deg);"/>
+            <circle cx="64" cy="66" r="4" fill="#141414"/>
+          </svg>
+        </div>
+
+        <div class="tier t3">
+          <div class="tier-text">
+            <span class="tier-label">Car-First &mdash; 25% of take-home</span>
+            <p class="tier-price" id="p3">&mdash;</p>
+            <p class="tier-sub" id="s3">A deliberate values choice: the car is a priority and the rest of the budget knows it. Eyes open.</p>
+          </div>
+          <svg class="tier-gauge" viewBox="0 0 128 78" aria-hidden="true">
+            <path d="M12 66 A52 52 0 0 1 100.8 29.2" stroke="#141414" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <path d="M100.8 29.2 A52 52 0 0 1 116 66" stroke="#C0392B" stroke-width="5" fill="none" stroke-linecap="round"/>
+            <line class="needle" id="n3" x1="64" y1="66" x2="64" y2="22" stroke="#C0392B" stroke-width="3.5" stroke-linecap="round" style="transform: rotate(-90deg);"/>
+            <circle cx="64" cy="66" r="4" fill="#141414"/>
+          </svg>
+        </div>
+
+        <p class="calc-note" id="detail"></p>
+      </div>
+    </div>
+
+    <!-- METHODOLOGY -->
+    <div class="methodology reveal" id="methodology">
+      <span class="eyebrow">Methodology</span>
+      <h3>Where these numbers come from.</h3>
+      <p>Each tier caps your <strong>all-in monthly cost of ownership</strong> &mdash; loan payment plus estimated insurance, fuel, and maintenance &mdash; at a fixed share of monthly take-home pay: 15% (Comfortable), 20% (Stretch), or 25% (Car-First). Ownership-cost estimates vary by vehicle age, reflecting that older enthusiast cars typically cost less to insure but more to maintain. Financing assumptions use indicative APRs by credit profile and vehicle age, consistent with standard auto-lending practices.</p>
+      <p>These are educational estimates intended to help you visualize and budget &mdash; not financial, lending, insurance, or investment advice, and not a quote. Your actual rates, premiums, and running costs will differ. Verify all figures with your lender and insurer before making any purchase decision.</p>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER BAND -->
+  <section class="news-band">
+    <div class="wrap section">
+      <span class="eyebrow">Know your number?</span>
+      <h2>Now find the right car for it.</h2>
+      <p style="margin-top:16px;">The Vehicle Selection Package turns your range into three specific cars with live listings &mdash; researched, vetted, and explained.</p>
+      <a class="btn" href="advisory.html">See the advisory</a>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <hr class="redline-rule rule-anim">
+  <div class="foot-grid">
+    <span class="nav-wordmark">Redline Advisory</span>
+    <ul class="foot-links">
+      <li><a href="calculator.html">Calculator</a></li>
+      <li><a href="guides.html">Guides</a></li>
+      <li><a href="advisory.html">Advisory</a></li>
+      <li><a href="about.html">About</a></li>
+    </ul>
+  </div>
+  <p class="disclaimer">Redline Advisory provides independent automotive market research and buying guidance. Jack works in financial services but is not a licensed financial advisor, attorney, or automotive dealer, and nothing on this site is financial, lending, insurance, or investment advice. Calculator results are educational estimates based on standard auto-lending practices and typical ownership-cost ranges for enthusiast vehicles; verify all figures independently before any purchase decision.</p>
+  <p class="copyright">&copy; 2026 REDLINE ADVISORY &middot; BOSTON, MA</p>
+</footer>
+
+<script src="site.js"></script>
+<script>
+// ============================================================
+// Redline all-in affordability engine (three-tier model)
+// VERIFY against the validated Python engine before launch.
+// ============================================================
+(function () {
+  var APR = { // indicative annual rates by credit profile and car age
+    excellent: { new: 0.065, mid: 0.075, old: 0.085 },
+    good:      { new: 0.080, mid: 0.090, old: 0.100 },
+    fair:      { new: 0.105, mid: 0.120, old: 0.135 }
+  };
+  var OWNERSHIP = { // estimated monthly insurance + fuel + maintenance
+    new: { ins: 220, fuel: 170, maint: 140 },
+    mid: { ins: 195, fuel: 185, maint: 240 },
+    old: { ins: 170, fuel: 195, maint: 330 }
+  };
+  var TIERS = [0.15, 0.20, 0.25];
+
+  function money(n) {
+    return "$" + Math.max(0, Math.round(n / 500) * 500).toLocaleString("en-US");
+  }
+
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  function animateNumber(el, target) {
+    var from = parseFloat(el.dataset.val) || 0;
+    el.dataset.val = target;
+    if (reduced || from === target) { el.textContent = money(target); return; }
+    var start = null, DUR = 900;
+    function frame(ts) {
+      if (start === null) start = ts;
+      var t = Math.min(1, (ts - start) / DUR);
+      var eased = 1 - Math.pow(1 - t, 3); // ease-out cubic — the glide
+      var val = from + (target - from) * eased;
+      el.textContent = "$" + (Math.round(val / 500) * 500).toLocaleString("en-US");
+      if (t < 1) requestAnimationFrame(frame);
+      else el.textContent = money(target);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function run() {
+    var takehome = parseFloat(document.getElementById("takehome").value) || 0;
+    var down = parseFloat(document.getElementById("down").value) || 0;
+    var credit = document.getElementById("credit").value;
+    var term = parseInt(document.getElementById("term").value, 10);
+    var age = document.getElementById("age").value;
+
+    if (takehome <= 0) {
+      document.getElementById("detail").textContent = "Enter your monthly take-home pay to see your range.";
+      return;
+    }
+
+    var own = OWNERSHIP[age];
+    var ownTotal = own.ins + own.fuel + own.maint;
+    var r = APR[credit][age] / 12;
+    var pvFactor = (1 - Math.pow(1 + r, -term)) / r;
+
+    // compute all three prices first so gauges share one scale
+    var prices = TIERS.map(function (pct) {
+      var payment = takehome * pct - ownTotal;
+      if (payment <= 0) return null;
+      return down + payment * pvFactor;
+    });
+    var gaugeMax = (prices[2] || prices[1] || prices[0] || 1) * 1.08;
+
+    prices.forEach(function (price, i) {
+      var n = i + 1;
+      var priceEl = document.getElementById("p" + n);
+      var needle = document.getElementById("n" + n);
+      if (price === null) {
+        priceEl.textContent = "—";
+        needle.style.transform = "rotate(-90deg)";
+        priceEl.dataset.val = 0;
+        return;
+      }
+      var rounded = Math.max(0, Math.round(price / 500) * 500);
+      animateNumber(priceEl, rounded);
+      var frac = Math.min(1, rounded / gaugeMax);
+      needle.style.transform = "rotate(" + (-90 + frac * 180) + "deg)";
+    });
+
+    document.getElementById("detail").textContent =
+      "Assumes ~$" + ownTotal + "/mo in estimated insurance, fuel, and maintenance for this age class, a " +
+      (APR[credit][age] * 100).toFixed(1) + "% indicative APR over " + term +
+      " months, and your $" + down.toLocaleString("en-US") + " down payment. Prices rounded to the nearest $500.";
+  }
+
+  document.getElementById("calc-btn").addEventListener("click", run);
+  ["takehome","down","credit","term","age"].forEach(function (id) {
+    document.getElementById(id).addEventListener("change", run);
+  });
+  // glide as you type
+  var debounce;
+  ["takehome","down"].forEach(function (id) {
+    document.getElementById(id).addEventListener("input", function () {
+      clearTimeout(debounce);
+      debounce = setTimeout(run, 350);
+    });
+  });
+})();
+</script>
+</body>
+</html>
