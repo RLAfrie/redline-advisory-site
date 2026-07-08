@@ -274,3 +274,19 @@ footer { padding: 56px 0 40px; }
 @media (prefers-reduced-motion: reduce) { .tier-gauge .needle { transition: none; } }
 .tier-meter { display: none; }
 @media (max-width: 480px) { .tier-gauge { width: 104px; height: 64px; } .tier-gauge .needle { transform-origin: 52px 54px; } }
+
+/* ---- Request-a-report form ---- */
+.request-form { max-width: 640px; }
+.rf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 520px) { .rf-grid { grid-template-columns: 1fr; } }
+.request-form label { display: block; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--graphite); margin: 22px 0 8px; }
+.rf-opt { text-transform: none; letter-spacing: 0; color: var(--hairline); color: #A9A69D; }
+.request-form input, .request-form textarea {
+  width: 100%; padding: 13px 14px; font-family: var(--body); font-size: 1rem;
+  border: 1px solid var(--ink); background: #FBFAF7; color: var(--ink); border-radius: 0;
+}
+.request-form textarea { resize: vertical; }
+.request-form .btn { margin-top: 28px; }
+.rf-status { margin-top: 16px; font-size: 0.92rem; min-height: 1.2em; }
+.rf-status.ok { color: var(--oxblood); }
+.rf-status.err { color: var(--red); }

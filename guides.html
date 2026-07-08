@@ -77,6 +77,41 @@
     </div>
   </section>
 
+  <div class="wrap"><hr class="redline-rule rule-anim"></div>
+
+  <!-- REQUEST A REPORT -->
+  <section class="section wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Don't see your car?</span>
+      <h2>Request a guide.</h2>
+      <p class="lede" style="margin-top:16px;">Shopping a model that isn't in the library yet &mdash; a new Supra, a GT4, something else? Tell me what you're after and I'll prioritize the guides buyers are actually asking for.</p>
+    </div>
+
+    <form class="request-form reveal" id="request-form" novalidate>
+      <div class="rf-grid">
+        <div>
+          <label for="rf-name">Name</label>
+          <input type="text" id="rf-name" name="name" autocomplete="name" required>
+        </div>
+        <div>
+          <label for="rf-email">Email</label>
+          <input type="email" id="rf-email" name="email" autocomplete="email" required>
+        </div>
+      </div>
+      <label for="rf-model">Which car do you want a guide on?</label>
+      <input type="text" id="rf-model" name="model" placeholder="e.g. 2024 Toyota GR Supra 3.0" required>
+
+      <label for="rf-budget">Target budget <span class="rf-opt">(optional)</span></label>
+      <input type="text" id="rf-budget" name="budget" placeholder="e.g. $55&ndash;65k">
+
+      <label for="rf-notes">Anything specific you want covered? <span class="rf-opt">(optional)</span></label>
+      <textarea id="rf-notes" name="notes" rows="3" placeholder="Specs you're torn on, years you're considering, questions you can't get answered elsewhere."></textarea>
+
+      <button type="submit" class="btn btn-solid" id="rf-submit">Send request</button>
+      <p class="rf-status" id="rf-status" role="status" aria-live="polite"></p>
+    </form>
+  </section>
+
   <!-- NEWSLETTER BAND -->
   <section class="news-band">
     <div class="wrap section">
@@ -105,5 +140,54 @@
 </footer>
 
 <script src="site.js"></script>
+<script>
+(function () {
+  var form = document.getElementById("request-form");
+  var status = document.getElementById("rf-status");
+  var btn = document.getElementById("rf-submit");
+  // SWAP: replace with your Formspree form ID (formspree.io — free, emails you each request)
+  var ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var name = form.name.value.trim();
+    var email = form.email.value.trim();
+    var model = form.model.value.trim();
+    if (!name || !email || !model) {
+      status.textContent = "Please add your name, email, and the car you want covered.";
+      status.className = "rf-status err";
+      return;
+    }
+    if (ENDPOINT.indexOf("YOUR_FORM_ID") !== -1) {
+      status.textContent = "Thanks, " + name + " — your request for a " + model + " guide is noted. (Live email delivery activates once the form endpoint is connected.)";
+      status.className = "rf-status ok";
+      form.reset();
+      return;
+    }
+    btn.disabled = true;
+    status.textContent = "Sending…";
+    status.className = "rf-status";
+    fetch(ENDPOINT, {
+      method: "POST",
+      headers: { "Accept": "application/json" },
+      body: new FormData(form)
+    }).then(function (r) {
+      if (r.ok) {
+        status.textContent = "Request received. I'll be in touch about your " + model + " guide.";
+        status.className = "rf-status ok";
+        form.reset();
+      } else {
+        status.textContent = "Something went wrong — email me directly and I'll sort it out.";
+        status.className = "rf-status err";
+      }
+      btn.disabled = false;
+    }).catch(function () {
+      status.textContent = "Something went wrong — email me directly and I'll sort it out.";
+      status.className = "rf-status err";
+      btn.disabled = false;
+    });
+  });
+})();
+</script>
 </body>
 </html>
