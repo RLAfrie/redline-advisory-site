@@ -1,193 +1,295 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Buyer's Guides — Redline Advisory</title>
-<meta name="description" content="Model-specific sports car buyer's guides: sold comps, known issues, spec and year guidance. Hours of research, one report.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css">
-</head>
-<body>
+/* ================================================================
+   REDLINE ADVISORY â€” brand system
+   Paper #F5F3EF Â· Ink #141414 Â· Redline #C0392B Â· Oxblood #8E2A20
+   Graphite #5F5E5A Â· Hairline #E3DFD6
+   Display: Fraunces Â· Body: system sans Â· Data: IBM Plex Mono
+   Signature: the redline rule â€” hairline dividers that hit red
+   ================================================================ */
 
-<header class="nav-sticky"><div class="wrap">
-  <nav class="nav">
-    <a class="nav-logo" href="index.html" aria-label="Redline Advisory home">
-      <svg width="44" height="44" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M6.6 23.3 A18 18 0 0 1 37.8 16.4" stroke="#141414" stroke-width="3" stroke-linecap="round"/>
-        <path d="M37.8 16.4 A18 18 0 0 1 41.4 23.3" stroke="#C0392B" stroke-width="3" stroke-linecap="round"/>
-        <line x1="24" y1="28" x2="37.6" y2="21.7" stroke="#C0392B" stroke-width="2.6" stroke-linecap="round"/>
-        <circle cx="24" cy="28" r="2.6" fill="#141414"/>
-      </svg>
-      <span class="nav-wordmark">Redline Advisory</span>
-    </a>
-    <ul class="nav-links">
-      <li class="hide-m"><a href="calculator.html">Calculator</a></li>
-      <li class="hide-m"><a class="active" href="guides.html">Guides</a></li>
-      <li class="hide-m"><a href="about.html">About</a></li>
-      <li><a class="nav-cta" href="advisory.html">ADVISORY</a></li>
-    </ul>
-  </nav>
-</div></header>
+:root {
+  --paper: #F5F3EF;
+  --ink: #141414;
+  --red: #C0392B;
+  --oxblood: #8E2A20;
+  --graphite: #5F5E5A;
+  --hairline: #E3DFD6;
+  --display: "Fraunces", Georgia, "Times New Roman", serif;
+  --body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --mono: "IBM Plex Mono", "SF Mono", Menlo, Consolas, monospace;
+  --max: 1120px;
+  --pad: clamp(20px, 4vw, 48px);
+}
 
-<main>
-  <section class="hero wrap" style="padding-bottom: clamp(30px, 5vw, 60px);">
-    <span class="eyebrow">Buyer's Guides</span>
-    <h1>The research, done once. Properly.</h1>
-    <p class="lede">Every guide condenses the forum threads, ownership reports, sold auction results, and spec debates into one buyer's-side document: what to pay, which years and options, and what walks you away from a car.</p>
-  </section>
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-  <div class="wrap"><hr class="redline-rule rule-anim"></div>
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
 
-  <section class="section wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">The library</span>
-      <h2>Current and upcoming.</h2>
-    </div>
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
 
-    <div class="guide-row reveal">
-      <span class="guide-badge">Available</span>
-      <span>
-        <h3>BMW M4 (F82) &mdash; Buyer's Guide</h3>
-        <p>Sold comps, the years and specs worth paying for, known issues, and a negotiation playbook for the modern M car everyone shortlists first.</p>
-      </span>
-      <!-- SWAP: replace href with your Gumroad product URL -->
-      <a class="btn btn-solid" href="#" data-placeholder="gumroad">Get the guide</a>
-    </div>
+.wrap { max-width: var(--max); margin: 0 auto; padding-left: var(--pad); padding-right: var(--pad); }
 
-    <div class="guide-row reveal">
-      <span class="guide-badge soon">In progress</span>
-      <span>
-        <h3>Porsche 911 GT3 RS (991.1) &mdash; Buyer's Guide</h3>
-        <p>The collector-grade track weapon: market position, spec rarity, PPI priorities, and where values have actually moved.</p>
-      </span>
-      <!-- SWAP: replace href with your Beehiiv subscribe URL to join the waitlist -->
-      <a class="btn btn-ghost" href="#" data-placeholder="beehiiv">Join the waitlist</a>
-    </div>
+/* ---- The redline rule (signature element) ---- */
+.redline-rule {
+  height: 1px;
+  border: 0;
+  background: linear-gradient(90deg, var(--ink) 0%, var(--ink) 84%, var(--red) 84%, var(--red) 100%);
+  opacity: 0.85;
+}
 
-    <div class="guide-row reveal">
-      <span class="guide-badge soon">Planned</span>
-      <span>
-        <h3>BMW M2 &mdash; Buyer's Guide</h3>
-        <p>The enthusiast entry point done right: which generation, which spec, and how to buy one without paying the hype tax.</p>
-      </span>
-      <a class="btn btn-ghost" href="#" data-placeholder="beehiiv">Join the waitlist</a>
-    </div>
-  </section>
+/* ---- Type ---- */
+h1, h2, h3 { font-family: var(--display); font-weight: 500; letter-spacing: -0.01em; }
+h1 { font-size: clamp(2.6rem, 7vw, 5rem); line-height: 1.04; }
+h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.12; }
+h3 { font-size: clamp(1.25rem, 2.4vw, 1.6rem); line-height: 1.25; }
 
-  <div class="wrap"><hr class="redline-rule rule-anim"></div>
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--red);
+  display: block;
+  margin-bottom: 18px;
+}
 
-  <!-- REQUEST A REPORT -->
-  <section class="section wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Don't see your car?</span>
-      <h2>Request a guide.</h2>
-      <p class="lede" style="margin-top:16px;">Shopping a model that isn't in the library yet &mdash; a new Supra, a GT4, something else? Tell me what you're after and I'll prioritize the guides buyers are actually asking for.</p>
-    </div>
+.lede { font-size: clamp(1.05rem, 1.8vw, 1.3rem); color: var(--graphite); max-width: 46ch; }
 
-    <form class="request-form reveal" id="request-form" novalidate>
-      <div class="rf-grid">
-        <div>
-          <label for="rf-name">Name</label>
-          <input type="text" id="rf-name" name="name" autocomplete="name" required>
-        </div>
-        <div>
-          <label for="rf-email">Email</label>
-          <input type="email" id="rf-email" name="email" autocomplete="email" required>
-        </div>
-      </div>
-      <label for="rf-model">Which car do you want a guide on?</label>
-      <input type="text" id="rf-model" name="model" placeholder="e.g. 2024 Toyota GR Supra 3.0" required>
+.mono { font-family: var(--mono); }
 
-      <label for="rf-budget">Target budget <span class="rf-opt">(optional)</span></label>
-      <input type="text" id="rf-budget" name="budget" placeholder="e.g. $55&ndash;65k">
+a { color: var(--ink); text-decoration-color: var(--red); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { color: var(--oxblood); }
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid var(--red); outline-offset: 3px; border-radius: 2px;
+}
 
-      <label for="rf-notes">Anything specific you want covered? <span class="rf-opt">(optional)</span></label>
-      <textarea id="rf-notes" name="notes" rows="3" placeholder="Specs you're torn on, years you're considering, questions you can't get answered elsewhere."></textarea>
+/* ---- Nav ---- */
+.nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding-top: 26px; padding-bottom: 26px;
+}
+.nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav-logo svg { display: block; }
+.nav-wordmark { font-family: var(--display); font-size: 1.05rem; letter-spacing: 0.02em; }
+.nav-links { display: flex; align-items: center; gap: clamp(14px, 2.5vw, 30px); list-style: none; }
+.nav-links a { text-decoration: none; font-size: 0.92rem; color: var(--ink); }
+.nav-links a.active { color: var(--red); }
+.nav-cta {
+  font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.06em;
+  border: 1px solid var(--ink); padding: 10px 18px; text-decoration: none;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+.nav-cta:hover { background: var(--ink); color: var(--paper); }
+@media (max-width: 760px) {
+  .nav-links li.hide-m { display: none; }
+}
 
-      <button type="submit" class="btn btn-solid" id="rf-submit">Send request</button>
-      <p class="rf-status" id="rf-status" role="status" aria-live="polite"></p>
-    </form>
-  </section>
+/* ---- Buttons ---- */
+.btn {
+  display: inline-block; font-family: var(--mono); font-size: 0.85rem;
+  letter-spacing: 0.05em; padding: 15px 28px; text-decoration: none;
+  border: 1px solid var(--ink); color: var(--ink); background: transparent;
+  cursor: pointer; transition: background 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+}
+.btn-solid { background: var(--red); border-color: var(--red); color: #fff; }
+.btn-solid:hover { background: var(--oxblood); border-color: var(--oxblood); color: #fff; }
+.btn-ghost:hover { background: var(--ink); color: var(--paper); }
 
-  <!-- NEWSLETTER BAND -->
-  <section class="news-band">
-    <div class="wrap section">
-      <span class="eyebrow">The Redline Report</span>
-      <h2>New guides land in the newsletter first.</h2>
-      <p style="margin-top:16px;">Subscribers get launch pricing on every guide, plus the weekly market read. Free.</p>
-      <!-- SWAP: replace href with your Beehiiv subscribe URL -->
-      <a class="btn" href="#" data-placeholder="beehiiv">Subscribe free</a>
-    </div>
-  </section>
-</main>
+/* ---- Hero ---- */
+.hero { padding-top: clamp(60px, 10vw, 130px); padding-bottom: clamp(60px, 9vw, 110px); }
+.hero h1 { max-width: 15ch; }
+.hero .lede { margin-top: 26px; }
+.hero-actions { margin-top: 40px; display: flex; gap: 16px; flex-wrap: wrap; }
 
-<footer class="wrap">
-  <hr class="redline-rule rule-anim">
-  <div class="foot-grid">
-    <span class="nav-wordmark">Redline Advisory</span>
-    <ul class="foot-links">
-      <li><a href="calculator.html">Calculator</a></li>
-      <li><a href="guides.html">Guides</a></li>
-      <li><a href="advisory.html">Advisory</a></li>
-      <li><a href="about.html">About</a></li>
-    </ul>
-  </div>
-  <p class="disclaimer">Redline Advisory provides independent automotive market research and buying guidance. Jack works in financial services but is not a licensed financial advisor, attorney, or automotive dealer, and nothing on this site is financial, lending, insurance, or investment advice. Calculator results are educational estimates based on standard auto-lending practices and typical ownership-cost ranges for enthusiast vehicles; verify all figures independently before any purchase decision.</p>
-  <p class="copyright">&copy; 2026 REDLINE ADVISORY &middot; BOSTON, MA</p>
-</footer>
+/* ---- Section scaffolding ---- */
+.section { padding-top: clamp(56px, 8vw, 100px); padding-bottom: clamp(56px, 8vw, 100px); }
+.section-head { margin-bottom: clamp(32px, 5vw, 56px); max-width: 60ch; }
 
-<script src="site.js"></script>
-<script>
-(function () {
-  var form = document.getElementById("request-form");
-  var status = document.getElementById("rf-status");
-  var btn = document.getElementById("rf-submit");
-  // SWAP: replace with your Formspree form ID (formspree.io — free, emails you each request)
-  var ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
+/* ---- Persona doors (routing rows) ---- */
+.door {
+  display: grid; grid-template-columns: 90px 1fr auto; gap: 24px; align-items: baseline;
+  padding: 34px 0; text-decoration: none; color: var(--ink);
+  border-top: 1px solid var(--hairline);
+  transition: padding-left 0.22s ease;
+}
+.door:last-of-type { border-bottom: 1px solid var(--hairline); }
+.door:hover { padding-left: 10px; }
+.door:hover .door-arrow { color: var(--red); transform: translateX(6px); }
+.door-index { font-family: var(--mono); font-size: 0.8rem; color: var(--graphite); }
+.door h3 { transition: color 0.18s ease; }
+.door:hover h3 { color: var(--oxblood); }
+.door p { color: var(--graphite); margin-top: 6px; font-size: 0.98rem; max-width: 52ch; }
+.door-arrow { font-family: var(--mono); font-size: 1.3rem; transition: transform 0.22s ease, color 0.18s ease; }
+@media (max-width: 640px) {
+  .door { grid-template-columns: 1fr auto; }
+  .door-index { display: none; }
+}
 
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    var name = form.name.value.trim();
-    var email = form.email.value.trim();
-    var model = form.model.value.trim();
-    if (!name || !email || !model) {
-      status.textContent = "Please add your name, email, and the car you want covered.";
-      status.className = "rf-status err";
-      return;
-    }
-    if (ENDPOINT.indexOf("YOUR_FORM_ID") !== -1) {
-      status.textContent = "Thanks, " + name + " — your request for a " + model + " guide is noted. (Live email delivery activates once the form endpoint is connected.)";
-      status.className = "rf-status ok";
-      form.reset();
-      return;
-    }
-    btn.disabled = true;
-    status.textContent = "Sending…";
-    status.className = "rf-status";
-    fetch(ENDPOINT, {
-      method: "POST",
-      headers: { "Accept": "application/json" },
-      body: new FormData(form)
-    }).then(function (r) {
-      if (r.ok) {
-        status.textContent = "Request received. I'll be in touch about your " + model + " guide.";
-        status.className = "rf-status ok";
-        form.reset();
-      } else {
-        status.textContent = "Something went wrong — email me directly and I'll sort it out.";
-        status.className = "rf-status err";
-      }
-      btn.disabled = false;
-    }).catch(function () {
-      status.textContent = "Something went wrong — email me directly and I'll sort it out.";
-      status.className = "rf-status err";
-      btn.disabled = false;
-    });
-  });
-})();
-</script>
-</body>
-</html>
+/* ---- Cards / offers ---- */
+.offer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
+.offer {
+  border: 1px solid var(--ink); padding: 36px 32px; background: #FBFAF7;
+  display: flex; flex-direction: column;
+}
+.offer.featured { border-color: var(--red); box-shadow: 6px 6px 0 var(--red); }
+.offer-price { font-family: var(--mono); font-size: 1.9rem; margin: 18px 0 4px; }
+.offer-price .per { font-size: 0.8rem; color: var(--graphite); }
+.offer ul { list-style: none; margin: 22px 0 30px; flex: 1; }
+.offer ul li { padding: 9px 0 9px 26px; position: relative; border-top: 1px solid var(--hairline); font-size: 0.95rem; }
+.offer ul li::before { content: "â€”"; position: absolute; left: 0; color: var(--red); }
+.offer .btn { text-align: center; }
+.offer-tag { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--graphite); }
+
+/* ---- Process steps ---- */
+.steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 36px; counter-reset: step; }
+.step { border-top: 2px solid var(--ink); padding-top: 20px; position: relative; }
+.step::after { content: ""; position: absolute; top: -2px; left: 0; width: 34px; height: 2px; background: var(--red); }
+.step-num { font-family: var(--mono); font-size: 0.75rem; color: var(--red); letter-spacing: 0.15em; }
+.step h3 { margin: 10px 0 8px; font-size: 1.2rem; }
+.step p { color: var(--graphite); font-size: 0.95rem; }
+
+/* ---- Proof / case studies ---- */
+.case { border-left: 2px solid var(--red); padding: 6px 0 6px 28px; margin-bottom: 40px; max-width: 62ch; }
+.case blockquote { font-family: var(--display); font-size: clamp(1.15rem, 2vw, 1.45rem); line-height: 1.4; }
+.case figcaption { margin-top: 14px; font-family: var(--mono); font-size: 0.78rem; color: var(--graphite); letter-spacing: 0.04em; }
+
+/* ---- About ---- */
+.about-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(32px, 5vw, 72px); align-items: start; }
+.about-grid img { width: 100%; height: auto; display: block; filter: saturate(0.92); }
+.about-grid .photo-cap { font-family: var(--mono); font-size: 0.72rem; color: var(--graphite); margin-top: 10px; letter-spacing: 0.04em; }
+.about-copy p + p { margin-top: 20px; }
+@media (max-width: 800px) { .about-grid { grid-template-columns: 1fr; } }
+
+/* ---- Newsletter band ---- */
+.news-band { background: var(--ink); color: var(--paper); }
+.news-band .eyebrow { color: var(--red); }
+.news-band h2 { color: var(--paper); }
+.news-band p { color: #C9C6BF; max-width: 52ch; }
+.news-band .btn { border-color: var(--paper); color: var(--paper); margin-top: 28px; }
+.news-band .btn:hover { background: var(--paper); color: var(--ink); }
+
+/* ---- Footer ---- */
+footer { padding: 56px 0 40px; }
+.foot-grid { display: flex; justify-content: space-between; gap: 32px; flex-wrap: wrap; margin-top: 32px; }
+.foot-links { list-style: none; display: flex; gap: 22px; flex-wrap: wrap; }
+.foot-links a { font-size: 0.88rem; text-decoration: none; }
+.disclaimer {
+  margin-top: 34px; padding-top: 22px; border-top: 1px solid var(--hairline);
+  font-size: 0.8rem; color: var(--graphite); max-width: 90ch; line-height: 1.6;
+}
+.copyright { font-family: var(--mono); font-size: 0.72rem; color: var(--graphite); margin-top: 18px; }
+
+/* ---- Calculator ---- */
+.calc-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: clamp(32px, 5vw, 64px); align-items: start; }
+@media (max-width: 860px) { .calc-grid { grid-template-columns: 1fr; } }
+.calc-form label { display: block; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--graphite); margin: 22px 0 8px; }
+.calc-form input, .calc-form select {
+  width: 100%; padding: 13px 14px; font-family: var(--mono); font-size: 1rem;
+  border: 1px solid var(--ink); background: #FBFAF7; color: var(--ink);
+}
+.calc-form .btn { width: 100%; margin-top: 30px; }
+.tier { border: 1px solid var(--ink); background: #FBFAF7; padding: 26px 26px 22px; margin-bottom: 18px; position: relative; }
+.tier-label { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; }
+.tier-price { font-family: var(--display); font-size: clamp(1.9rem, 3.5vw, 2.6rem); margin: 6px 0 2px; }
+.tier-sub { font-size: 0.88rem; color: var(--graphite); }
+.tier-meter { height: 5px; background: var(--hairline); margin-top: 16px; position: relative; overflow: hidden; }
+.tier-meter span { position: absolute; inset: 0 auto 0 0; background: var(--ink); }
+.tier.t1 .tier-meter span { width: 60%; }
+.tier.t2 .tier-meter span { width: 80%; background: linear-gradient(90deg, var(--ink) 75%, var(--red) 75%); }
+.tier.t3 .tier-meter span { width: 100%; background: linear-gradient(90deg, var(--ink) 60%, var(--red) 60%); }
+.tier.t3 { border-color: var(--red); }
+.tier.t3 .tier-label { color: var(--red); }
+.calc-note { font-size: 0.85rem; color: var(--graphite); margin-top: 22px; line-height: 1.6; }
+.methodology { background: #FBFAF7; border: 1px solid var(--hairline); padding: 30px 32px; margin-top: 48px; }
+.methodology h3 { margin-bottom: 12px; }
+.methodology p { font-size: 0.92rem; color: var(--graphite); }
+.methodology p + p { margin-top: 12px; }
+
+/* ---- Guides ---- */
+.guide-row { display: grid; grid-template-columns: auto 1fr auto; gap: 26px; align-items: center; padding: 30px 0; border-top: 1px solid var(--hairline); }
+.guide-row:last-of-type { border-bottom: 1px solid var(--hairline); }
+.guide-badge { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; border: 1px solid var(--ink); padding: 6px 10px; white-space: nowrap; }
+.guide-badge.soon { border-color: var(--graphite); color: var(--graphite); }
+.guide-row p { color: var(--graphite); font-size: 0.95rem; margin-top: 4px; }
+@media (max-width: 640px) { .guide-row { grid-template-columns: 1fr; gap: 12px; } }
+.guide-row-thumb { grid-template-columns: 88px auto 1fr auto; }
+.guide-thumb { width: 88px; height: 88px; object-fit: cover; border: 1px solid var(--ink); display: block; }
+@media (max-width: 640px) { .guide-row-thumb { grid-template-columns: 1fr; } .guide-thumb { width: 100%; height: 160px; } }
+
+/* ---- Reveal animation ---- */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.in { opacity: 1; transform: none; }
+
+/* ================================================================
+   v2 refinements â€” density, flow, sticky nav, tach gauges
+   ================================================================ */
+
+/* Tighter vertical rhythm */
+.section { padding-top: clamp(44px, 6vw, 76px); padding-bottom: clamp(44px, 6vw, 76px); }
+.hero { padding-top: clamp(40px, 6vw, 84px); padding-bottom: clamp(40px, 6vw, 72px); }
+.section-head { margin-bottom: clamp(26px, 4vw, 44px); }
+.door { padding: 28px 0; }
+
+/* Sticky nav */
+.nav-sticky {
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(245, 243, 239, 0.92);
+  backdrop-filter: blur(7px); -webkit-backdrop-filter: blur(7px);
+  border-bottom: 1px solid var(--hairline);
+}
+.nav-sticky .nav { padding-top: 16px; padding-bottom: 16px; }
+
+/* Split hero with photo */
+.hero-split { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(28px, 4vw, 64px); align-items: center; }
+.hero-photo img { width: 100%; height: auto; display: block; filter: saturate(0.95) contrast(1.02); box-shadow: 12px 12px 0 var(--red); }
+.hero-photo .photo-cap { font-family: var(--mono); font-size: 0.7rem; color: var(--graphite); margin-top: 14px; letter-spacing: 0.05em; }
+@media (max-width: 880px) { .hero-split { grid-template-columns: 1fr; } .hero-photo { max-width: 440px; } }
+
+/* Alternating band for flow */
+.band-alt { background: #EDEAE1; }
+
+/* Redline rules draw themselves in */
+.redline-rule { transform-origin: left center; }
+.rule-anim { transform: scaleX(0); transition: transform 0.9s cubic-bezier(0.22, 0.9, 0.3, 1); }
+.rule-anim.in { transform: scaleX(1); }
+@media (prefers-reduced-motion: reduce) { .rule-anim { transform: none; transition: none; } }
+
+/* Staggered reveals inside sections */
+.reveal:nth-child(2) { transition-delay: 0.08s; }
+.reveal:nth-child(3) { transition-delay: 0.16s; }
+.reveal:nth-child(4) { transition-delay: 0.24s; }
+
+/* Tier cards become tachometers */
+.tier { display: grid; grid-template-columns: 1fr auto; column-gap: 20px; align-items: center; }
+.tier-text { min-width: 0; }
+.tier-gauge { width: 128px; height: 78px; }
+.tier-gauge .needle { transform-origin: 64px 66px; transition: transform 1s cubic-bezier(0.34, 1.25, 0.42, 1); }
+@media (prefers-reduced-motion: reduce) { .tier-gauge .needle { transition: none; } }
+.tier-meter { display: none; }
+@media (max-width: 480px) { .tier-gauge { width: 104px; height: 64px; } .tier-gauge .needle { transform-origin: 52px 54px; } }
+
+/* ---- Request-a-report form ---- */
+.request-form { max-width: 640px; }
+.rf-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 520px) { .rf-grid { grid-template-columns: 1fr; } }
+.request-form label { display: block; font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--graphite); margin: 22px 0 8px; }
+.rf-opt { text-transform: none; letter-spacing: 0; color: var(--hairline); color: #A9A69D; }
+.request-form input, .request-form textarea {
+  width: 100%; padding: 13px 14px; font-family: var(--body); font-size: 1rem;
+  border: 1px solid var(--ink); background: #FBFAF7; color: var(--ink); border-radius: 0;
+}
+.request-form textarea { resize: vertical; }
+.request-form .btn { margin-top: 28px; }
+.rf-status { margin-top: 16px; font-size: 0.92rem; min-height: 1.2em; }
+.rf-status.ok { color: var(--oxblood); }
+.rf-status.err { color: var(--red); }
