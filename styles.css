@@ -1,9 +1,9 @@
 /* ================================================================
-   REDLINE ADVISORY — brand system
-   Paper #F5F3EF · Ink #141414 · Redline #C0392B · Oxblood #8E2A20
-   Graphite #5F5E5A · Hairline #E3DFD6
-   Display: Fraunces · Body: system sans · Data: IBM Plex Mono
-   Signature: the redline rule — hairline dividers that hit red
+   REDLINE ADVISORY â€” brand system
+   Paper #F5F3EF Â· Ink #141414 Â· Redline #C0392B Â· Oxblood #8E2A20
+   Graphite #5F5E5A Â· Hairline #E3DFD6
+   Display: Fraunces Â· Body: system sans Â· Data: IBM Plex Mono
+   Signature: the redline rule â€” hairline dividers that hit red
    ================================================================ */
 
 :root {
@@ -146,7 +146,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 .offer-price .per { font-size: 0.8rem; color: var(--graphite); }
 .offer ul { list-style: none; margin: 22px 0 30px; flex: 1; }
 .offer ul li { padding: 9px 0 9px 26px; position: relative; border-top: 1px solid var(--hairline); font-size: 0.95rem; }
-.offer ul li::before { content: "—"; position: absolute; left: 0; color: var(--red); }
+.offer ul li::before { content: "â€”"; position: absolute; left: 0; color: var(--red); }
 .offer .btn { text-align: center; }
 .offer-tag { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--graphite); }
 
@@ -222,13 +222,16 @@ footer { padding: 56px 0 40px; }
 .guide-badge.soon { border-color: var(--graphite); color: var(--graphite); }
 .guide-row p { color: var(--graphite); font-size: 0.95rem; margin-top: 4px; }
 @media (max-width: 640px) { .guide-row { grid-template-columns: 1fr; gap: 12px; } }
+.guide-row-thumb { grid-template-columns: 88px auto 1fr auto; }
+.guide-thumb { width: 88px; height: 88px; object-fit: cover; border: 1px solid var(--ink); display: block; }
+@media (max-width: 640px) { .guide-row-thumb { grid-template-columns: 1fr; } .guide-thumb { width: 100%; height: 160px; } }
 
 /* ---- Reveal animation ---- */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.in { opacity: 1; transform: none; }
 
 /* ================================================================
-   v2 refinements — density, flow, sticky nav, tach gauges
+   v2 refinements â€” density, flow, sticky nav, tach gauges
    ================================================================ */
 
 /* Tighter vertical rhythm */
