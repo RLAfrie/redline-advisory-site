@@ -8,6 +8,21 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://redline-advisory.com/calculator.html">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon.ico" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#F5F3EF">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Redline Advisory">
+<meta property="og:title" content="Affordability Calculator — Redline Advisory">
+<meta property="og:description" content="Free sports car affordability calculator built on all-in ownership cost: payment, insurance, fuel, and maintenance — not just the loan.">
+<meta property="og:url" content="https://redline-advisory.com/calculator.html">
+<meta property="og:image" content="https://redline-advisory.com/images/bmw-m4-guide.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Affordability Calculator — Redline Advisory">
+<meta name="twitter:description" content="Free sports car affordability calculator built on all-in ownership cost: payment, insurance, fuel, and maintenance — not just the loan.">
+<meta name="twitter:image" content="https://redline-advisory.com/images/bmw-m4-guide.jpg">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -28,8 +43,14 @@
       <li class="hide-m"><a href="guides.html">Guides</a></li>
       <li class="hide-m"><a href="about.html">About</a></li>
       <li><a class="nav-cta" href="advisory.html">ADVISORY</a></li>
+      <li class="show-m"><button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-mobile"><span></span><span></span><span></span></button></li>
     </ul>
   </nav>
+  <ul class="nav-mobile" id="nav-mobile" hidden>
+    <li><a class="active" href="calculator.html">Calculator</a></li>
+    <li><a href="guides.html">Guides</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
 </div></header>
 
 <main>
@@ -47,10 +68,10 @@
       <div class="calc-form">
         <span class="eyebrow">Your inputs</span>
         <label for="takehome">Monthly take-home pay ($)</label>
-        <input type="number" id="takehome" inputmode="numeric" placeholder="6500" min="0">
+        <input type="number" id="takehome" inputmode="numeric" placeholder="6500" min="0" value="6500">
 
         <label for="down">Down payment ($)</label>
-        <input type="number" id="down" inputmode="numeric" placeholder="10000" min="0">
+        <input type="number" id="down" inputmode="numeric" placeholder="10000" min="0" value="10000">
 
         <label for="credit">Credit profile</label>
         <select id="credit">
@@ -254,6 +275,7 @@
   ["takehome","down","credit","term","age"].forEach(function (id) {
     document.getElementById(id).addEventListener("change", run);
   });
+  run(); // show a worked example on arrival
   // glide as you type
   var debounce;
   ["takehome","down"].forEach(function (id) {
